@@ -1,0 +1,40 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8cpaltq5m4kd"]
+
+[ext_resource type="Script" uid="uid://bqi7wet82epl3" path="res://laser.gd" id="1_1q8yf"]
+[ext_resource type="Texture2D" uid="uid://d03x72eply65o" path="res://Sprites/beam_animation/beam_animation1.png" id="1_3m21p"]
+[ext_resource type="Texture2D" uid="uid://w4vyrum6a54a" path="res://Sprites/beam_animation/beam_animation2.png" id="2_le4l5"]
+[ext_resource type="Texture2D" uid="uid://bmycnxlqrbuju" path="res://Sprites/beam_animation/beam_animation3.png" id="3_acgh3"]
+[ext_resource type="Texture2D" uid="uid://bp4w4w5wfbeqf" path="res://Sprites/beam_animation/beam_animation4.png" id="4_xgycp"]
+[ext_resource type="Texture2D" uid="uid://dnl8yswxq7rmo" path="res://Sprites/beam_animation/beam_animation5.png" id="5_70iye"]
+[ext_resource type="Texture2D" uid="uid://br75hgy3x80ie" path="res://Sprites/beam_animation/beam_animation6.png" id="6_1equ3"]
+[ext_resource type="Texture2D" uid="uid://drw8huuxfuayi" path="res://Sprites/beam_animation/beam_animation7.png" id="7_x1fsd"]
+[ext_resource type="Texture2D" uid="uid://wespxb01oxsg" path="res://Sprites/beam_animation/beam_animation8.png" id="8_bbdxc"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_8j6y1"]
+frames = 8
+speed_scale = 30.0
+frame_0/texture = ExtResource("1_3m21p")
+frame_1/texture = ExtResource("2_le4l5")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_acgh3")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_xgycp")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_70iye")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_1equ3")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("7_x1fsd")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("8_bbdxc")
+frame_7/duration = 1.0
+
+[node name="bolt" type="Line2D"]
+width = 30.0
+texture = SubResource("AnimatedTexture_8j6y1")
+texture_mode = 1
+script = ExtResource("1_1q8yf")
+
+[node name="StaticBody2D" type="Area2D" parent="."]
+
+[connection signal="body_entered" from="StaticBody2D" to="." method="_on_static_body_2d_body_entered"]
