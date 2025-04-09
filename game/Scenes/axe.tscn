@@ -1,0 +1,47 @@
+[gd_scene load_steps=12 format=3 uid="uid://bxkdijk2mnh70"]
+
+[ext_resource type="Script" uid="uid://drhr7rcy67vgi" path="res://Scripts/axe.gd" id="1_5sm5t"]
+[ext_resource type="Texture2D" uid="uid://cb7aha6nng0j6" path="res://Sprites/axe_animation/axe1.png" id="2_gllqp"]
+[ext_resource type="Texture2D" uid="uid://pn6dajrvsfpl" path="res://Sprites/axe_animation/axe2.png" id="3_0ked7"]
+[ext_resource type="Texture2D" uid="uid://b27nhgthodrr0" path="res://Sprites/axe_animation/axe3.png" id="4_vasp8"]
+[ext_resource type="Texture2D" uid="uid://c4m5ufqyenbo" path="res://Sprites/axe_animation/axe4.png" id="5_wp1hs"]
+[ext_resource type="Texture2D" uid="uid://b12eefl5fqpfs" path="res://Sprites/axe_animation/axe5.png" id="6_tjqop"]
+[ext_resource type="Texture2D" uid="uid://b3vhdhjrejbaw" path="res://Sprites/axe_animation/axe6.png" id="7_vgnbf"]
+[ext_resource type="Texture2D" uid="uid://bsieyfm3507o1" path="res://Sprites/axe_animation/axe7.png" id="8_1ebib"]
+[ext_resource type="Texture2D" uid="uid://fmhr2es1it0d" path="res://Sprites/axe_animation/axe8.png" id="9_wttj4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gllqp"]
+size = Vector2(23, 22)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_0ked7"]
+frames = 8
+speed_scale = 10.0
+frame_0/texture = ExtResource("2_gllqp")
+frame_1/texture = ExtResource("3_0ked7")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_vasp8")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_wp1hs")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("6_tjqop")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("7_vgnbf")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("8_1ebib")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("9_wttj4")
+frame_7/duration = 1.0
+
+[node name="axe" type="RigidBody2D"]
+script = ExtResource("1_5sm5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_gllqp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_0ked7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -12,7 +12,6 @@ extends RigidBody2D
 func _ready() -> void:
 	player_sprite.texture = sprite
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Game.can_move:

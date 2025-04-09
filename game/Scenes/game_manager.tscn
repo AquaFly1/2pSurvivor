@@ -4,3 +4,5 @@
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_oj352")
+
+[connection signal="player_take_damage" from="." to="." method="_on_player_take_damage"]
