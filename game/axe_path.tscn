@@ -1,13 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://bokhdf8j10ivj"]
+[gd_scene load_steps=14 format=3 uid="uid://bokhdf8j10ivj"]
 
 [ext_resource type="Script" uid="uid://bx3r3x02tma30" path="res://axe_path.gd" id="1_7137o"]
 [ext_resource type="PackedScene" uid="uid://bxkdijk2mnh70" path="res://Scenes/axe.tscn" id="2_dsdu3"]
+[ext_resource type="Texture2D" uid="uid://cb7aha6nng0j6" path="res://Sprites/axe_animation/axe1.png" id="3_2ixlq"]
+[ext_resource type="Texture2D" uid="uid://pn6dajrvsfpl" path="res://Sprites/axe_animation/axe2.png" id="4_1o2w7"]
+[ext_resource type="Texture2D" uid="uid://b27nhgthodrr0" path="res://Sprites/axe_animation/axe3.png" id="5_mrlrw"]
+[ext_resource type="Texture2D" uid="uid://c4m5ufqyenbo" path="res://Sprites/axe_animation/axe4.png" id="6_q6bgh"]
+[ext_resource type="Texture2D" uid="uid://b12eefl5fqpfs" path="res://Sprites/axe_animation/axe5.png" id="7_wj2gb"]
+[ext_resource type="Texture2D" uid="uid://b3vhdhjrejbaw" path="res://Sprites/axe_animation/axe6.png" id="8_ayr6h"]
+[ext_resource type="Texture2D" uid="uid://bsieyfm3507o1" path="res://Sprites/axe_animation/axe7.png" id="9_ctqdf"]
+[ext_resource type="Texture2D" uid="uid://fmhr2es1it0d" path="res://Sprites/axe_animation/axe8.png" id="10_fixw5"]
 
 [sub_resource type="Curve2D" id="Curve2D_ka1hm"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 363, 135)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_javqf"]
+size = Vector2(23, 22)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_tjki5"]
+frames = 8
+speed_scale = 10.0
+frame_0/texture = ExtResource("3_2ixlq")
+frame_1/texture = ExtResource("4_1o2w7")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_mrlrw")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("6_q6bgh")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("7_wj2gb")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("8_ayr6h")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("9_ctqdf")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("10_fixw5")
+frame_7/duration = 1.0
 
 [node name="Path2D" type="Path2D"]
 curve = SubResource("Curve2D_ka1hm")
@@ -18,3 +48,12 @@ rotation = 0.356051
 loop = false
 
 [node name="axe" parent="PathFollow2D" instance=ExtResource("2_dsdu3")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PathFollow2D/axe"]
+position = Vector2(-0.5, 0)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_javqf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PathFollow2D/axe"]
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_tjki5")
