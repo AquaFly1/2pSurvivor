@@ -32,7 +32,7 @@ frame_6/duration = 1.0
 frame_7/texture = ExtResource("9_wttj4")
 frame_7/duration = 1.0
 
-[node name="axe" type="RigidBody2D"]
+[node name="axe" type="Area2D"]
 script = ExtResource("1_5sm5t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -44,4 +44,5 @@ shape = SubResource("RectangleShape2D_gllqp")
 scale = Vector2(5, 5)
 texture = SubResource("AnimatedTexture_0ked7")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

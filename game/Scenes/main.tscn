@@ -1,17 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwienwdtwchla"]
 
-[ext_resource type="PackedScene" uid="uid://bxkdijk2mnh70" path="res://Scenes/axe.tscn" id="1_6bp64"]
+[ext_resource type="PackedScene" uid="uid://bokhdf8j10ivj" path="res://axe_path.tscn" id="1_344ge"]
 [ext_resource type="PackedScene" uid="uid://b7ibscpkeouqg" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://c46rfahrrvlj3" path="res://Sprites/P1.aseprite" id="2_8gbba"]
 [ext_resource type="Texture2D" uid="uid://d0n56nqa45awu" path="res://Sprites/P2.aseprite" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://c8cpaltq5m4kd" path="res://Scenes/bolt.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dgqu2d7kml2nw" path="res://Scenes/enemy.tscn" id="5_kry3j"]
-[ext_resource type="Script" uid="uid://cpwb6o6d8pb6r" path="res://Scenes/camera_2d.gd" id="6_21xkr"]
+[ext_resource type="Script" uid="uid://cpwb6o6d8pb6r" path="res://Scripts/camera_2d.gd" id="6_21xkr"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Axe" parent="." instance=ExtResource("1_6bp64")]
-position = Vector2(0, -138)
+[node name="Path2D" parent="." instance=ExtResource("1_344ge")]
 
 [node name="Line2D" parent="." instance=ExtResource("4_jjvhh")]
 
