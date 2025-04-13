@@ -12,10 +12,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	curve.set_point_position(0, Game.get_player_1().position)
 	curve.set_point_position(1, Game.get_player_2().position)
-	if path_follow.progress_ratio == 1:
+	print(path_follow.progress_ratio)
+	if snapped(path_follow.progress_ratio, 0.1) == 1:
 		speed *= -1
 		sprite.flip_h
-	elif path_follow.progress_ratio == 0:
+	elif snapped(path_follow.progress_ratio, 0.1) == 0:
 		speed *= -1
 		sprite.flip_h
 	path_follow.progress += speed

@@ -13,23 +13,13 @@ func _ready() -> void:
 	player_sprite.texture = sprite
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if Game.can_move:
 		if player_1:
-			if Input.is_action_pressed("P1_up"):
-				player.position += Vector2(0,-1) * Game.speed
-			if Input.is_action_pressed("P1_down"):
-				player.position += Vector2(0,1) * Game.speed
-			if Input.is_action_pressed("P1_left"):
-				player.position += Vector2(-1,0) * Game.speed
-			if Input.is_action_pressed("P1_right"):
-				player.position += Vector2(1,0) * Game.speed
+			var input_direction = Input.get_vector("P1_left", "P1_right", "P1_up", "P1_down")
+			var velocity = input_direction * Game.speed
+			player.move_and_collide(velocity)
 		if not player_1:
-			if Input.is_action_pressed("P2_up"):
-				player.position += Vector2(0,-1) * Game.speed
-			if Input.is_action_pressed("P2_down"):
-				player.position += Vector2(0,1) * Game.speed
-			if Input.is_action_pressed("P2_left"):
-				player.position += Vector2(-1,0) * Game.speed
-			if Input.is_action_pressed("P2_right"):
-				player.position += Vector2(1,0) * Game.speed
+			var input_direction = Input.get_vector("P2_left", "P2_right", "P2_up", "P2_down")
+			var velocity = input_direction * Game.speed
+			player.move_and_collide(velocity)
